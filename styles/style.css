@@ -21,7 +21,7 @@ body{
 .cards{
   display: flex;
   justify-content: space-evenly;
-  width:29vw;
+  width:40vw;
   flex-wrap: wrap;
 }
 
@@ -34,8 +34,7 @@ body{
   border-radius: 7px;
   box-shadow: 0 3px 10px black;
   cursor: pointer;
-
-
+  margin-bottom: 1rem;
 }
 
 /* front face of the card */
@@ -54,10 +53,10 @@ body{
 }
 
 /* back face of the card */
-
-.back{
+.hidden{
   display: none;
 }
+
 
 .card img{
 width: 180px;
