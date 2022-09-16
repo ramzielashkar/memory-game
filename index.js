@@ -1,11 +1,14 @@
 const cards = document.querySelectorAll('.card');
 const btn = document.querySelector('.btn');
+const scores = document.querySelector('.score');
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+let score =0;
 
 // Function to shuffle cards positions
 const shuffleCards = () => {
+  matched = 0;
   let arr = [1, 2, 3, 1, 2, 3];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
     cards.forEach((card, i) => {
@@ -20,8 +23,12 @@ const shuffleCards = () => {
 }
 // Function to check if the two selected cards matches
 const matchCards = (cardOneImg, cardTwoImg) => {
+  console.log("match");
 if(cardOneImg == cardTwoImg){
   matched++;
+  score+=5;
+  scores.textContent = `Your score is: ${score}`;
+
   if(matched==3){
 shuffleCards();
   }
@@ -47,8 +54,6 @@ const flipCard = (card) => {
           disableDeck = true;
           let cardOneImg = cardOne.querySelector(".back img").src;
           let cardTwoImg = cardTwo.querySelector(".back img").src;
-          console.log(cardOneImg);
-          console.log(cardTwoImg);
           matchCards(cardOneImg, cardTwoImg);
       }
 }
@@ -62,5 +67,6 @@ flipCard(card);
 
 // Adding play again button event Listener
 btn.addEventListener("click", () => {
-  shuffleCards();
+location.reload();
 })
+  shuffleCards();
